@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		591E3504289CF0B000F07A77 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591E3503289CF0B000F07A77 /* TableViewController.swift */; };
 		59B234C5289BAFDF00300C20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B234C4289BAFDF00300C20 /* AppDelegate.swift */; };
 		59B234C7289BAFDF00300C20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B234C6289BAFDF00300C20 /* SceneDelegate.swift */; };
 		59B234C9289BAFDF00300C20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B234C8289BAFDF00300C20 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		591E3503289CF0B000F07A77 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		59B234C1289BAFDF00300C20 /* Weather_Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather_Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B234C4289BAFDF00300C20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59B234C6289BAFDF00300C20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		59B234DA289BBA7F00300C20 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				591E3503289CF0B000F07A77 /* TableViewController.swift */,
 				59B234C8289BAFDF00300C20 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -184,6 +187,7 @@
 				59B234E2289BEF5700300C20 /* WeatherModel.swift in Sources */,
 				59B234C7289BAFDF00300C20 /* SceneDelegate.swift in Sources */,
 				59B234E0289BC2BA00300C20 /* ForecastModel.swift in Sources */,
+				591E3504289CF0B000F07A77 /* TableViewController.swift in Sources */,
 				59B234DE289BC27800300C20 /* ForecastManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

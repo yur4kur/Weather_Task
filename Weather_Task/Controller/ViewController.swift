@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     // MARK: - Header outlets
     
+    @IBOutlet weak var favouritesButton: UIButton!
     @IBOutlet var field: UITextField!
     @IBOutlet var searchButton: UIButton!
     
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var forecastView: UITableView!
     
     
-    
+    public var savedCities = ["Moscow", "London", "Paris", "Rome"]
     public var location = ""
     
     // MARK: - Properties
@@ -42,7 +43,6 @@ class ViewController: UIViewController {
     
     var fetchedWeather = WeatherModel() {
         didSet {
-            print("weather set")
             DispatchQueue.main.async {
                 self.updateView()
             }
@@ -62,16 +62,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //updateView()
-//        let weatherManager = WeatherManager()
-//
-//        weatherManager.fetchWeather(for: "London") { (weatherData) in
-//            DispatchQueue.main.async { [self] in
-//                print(weatherData.name)
-//            }
-//            self.fetchedWeather = weatherData
-//        }
-        
         // MARK: - Helpers
         
         dateFormatter.dateFormat = "E, hh:mm a"
@@ -82,7 +72,25 @@ class ViewController: UIViewController {
         forecastView.dataSource = self
     }
     
-     
+     // MARK: - PopUp ViewController Setup
+    
+    @IBAction func favouritesTapped() {
+        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") else {
+            return
+        }
+        
+    }
+    
+    // MARK: - Saving cities method
+    
+    @IBAction func addToFavouritesTapped() {
+        if location.isEmpty == false {
+            savedCities.append(location)
+        }
+        
+        
+    }
+    
     
     // MARK: - Search method
     
@@ -95,7 +103,6 @@ class ViewController: UIViewController {
             
             weatherManager.fetchWeather(for: location) { (weatherData) in
                 DispatchQueue.main.async { [self] in
-                    print(weatherData.name)
                 }
                 self.fetchedWeather = weatherData
             }
@@ -146,10 +153,8 @@ extension ViewController: UITextFieldDelegate {
         
         if let cityName = textField.text {
             location = cityName
+            searchButtonTapped()
         }
-        print(location)
-        
-        
         return true
     }
 }
@@ -165,3 +170,5 @@ extension ViewController {
         currentFeelsTempLabel.text = "Feels: " + Int((fetchedWeather.main.feels_like)).description + "°"
         }
 }
+
+
