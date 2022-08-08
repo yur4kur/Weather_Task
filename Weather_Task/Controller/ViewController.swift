@@ -29,8 +29,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var forecastView: UITableView!
     
     
-    public var savedCities = ["Moscow", "London", "Paris", "Rome"]
-    public var location = ""
+    // MARK: - Update user's cities method
+    
+   
+    func updateList() {
+        UserDefaults.standard.set(savedCities, forKey: "savedCities")
+    }
+    
+    var savedCities: [String] = []
+    var location = ""
     
     // MARK: - Properties
     
@@ -75,10 +82,9 @@ class ViewController: UIViewController {
      // MARK: - PopUp ViewController Setup
     
     @IBAction func favouritesTapped() {
-        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") else {
-            return
-        }
-        
+        let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") as! TableViewController
+        savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
+        self.navigationController?.pushViewController(popVC, animated: true)
     }
     
     // MARK: - Saving cities method
@@ -86,6 +92,8 @@ class ViewController: UIViewController {
     @IBAction func addToFavouritesTapped() {
         if location.isEmpty == false {
             savedCities.append(location)
+            updateList()
+            
         }
         
         
@@ -118,7 +126,7 @@ class ViewController: UIViewController {
         } else {
             return
         }
-
+        savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
     }
 }
 

@@ -8,15 +8,18 @@
 
 import UIKit
 
+// MARK: - Saved cities list setup
+
 class TableViewController: UITableViewController {
 
-   var savedCities = ["Moscow", "London", "Paris", "Rome"]
+    var arrayOfCities = UserDefaults.standard.object(forKey: "savedCities") as? [String]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        //self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -25,24 +28,43 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return savedCities.count
+
+        return self.arrayOfCities!.count
+        
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let cities = savedCities[indexPath.row]
+        let cities = arrayOfCities?[indexPath.row]
         cell.textLabel!.text = cities
 
         return cell
     }
+    
+    // MARK: - Deleting cells methods
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            arrayOfCities!.remove(at: indexPath.row)
+            UserDefaults.standard.set(arrayOfCities, forKey: "savedCities")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
+    
     
 
     /*
