@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Weather_Task" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" id="BYZ-38-t0r" customClass="ViewController" customModule="Open_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="50" id="ur0-EK-xfo" customClass="CustomCell" customModule="Weather_Task" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="50" id="ur0-EK-xfo" customClass="CustomCell" customModule="Open_Weather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ur0-EK-xfo" id="Lcq-n8-PxI">
@@ -186,7 +186,6 @@
                             <constraint firstItem="GFF-dq-df1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="igX-sc-Yx0"/>
                             <constraint firstAttribute="trailing" secondItem="4qR-aF-5mh" secondAttribute="trailing" constant="20" id="keR-pl-Tpt"/>
                             <constraint firstItem="MuD-6O-Pju" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="83" id="kmw-w6-UgM"/>
-                            <constraint firstItem="hph-CO-iri" firstAttribute="leading" secondItem="wBU-y5-5nA" secondAttribute="trailing" constant="43" id="mOU-NS-tgb"/>
                             <constraint firstItem="wBU-y5-5nA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="57" id="uYW-u8-vKK"/>
                             <constraint firstItem="4qR-aF-5mh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="w8S-yv-uG3"/>
                             <constraint firstItem="mFt-xb-M5z" firstAttribute="top" secondItem="Nps-S8-es8" secondAttribute="bottom" constant="37" id="ymK-gA-eYB"/>
@@ -211,17 +210,17 @@
         <!--Table View Controller-->
         <scene sceneID="is7-bN-sSi">
             <objects>
-                <tableViewController storyboardIdentifier="popVC" id="msc-0h-2vQ" customClass="TableViewController" customModule="Weather_Task" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CJV-rK-rTE">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                <tableViewController storyboardIdentifier="popVC" id="msc-0h-2vQ" customClass="TableViewController" customModule="Open_Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" id="CJV-rK-rTE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="hL7-Mb-wvm">
-                                <rect key="frame" x="0.0" y="28" width="250" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hL7-Mb-wvm" id="C1X-BN-XLT">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -231,7 +230,6 @@
                             <outlet property="delegate" destination="msc-0h-2vQ" id="mGk-BJ-GZk"/>
                         </connections>
                     </tableView>
-                    <size key="freeformSize" width="250" height="250"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZR-Xj-CeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

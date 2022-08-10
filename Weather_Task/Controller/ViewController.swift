@@ -31,13 +31,13 @@ class ViewController: UIViewController {
     
     // MARK: - Update user's cities method
     
-   
     func updateList() {
         UserDefaults.standard.set(savedCities, forKey: "savedCities")
     }
     
     var savedCities: [String] = []
     var location = ""
+    
     
     // MARK: - Properties
     
@@ -64,10 +64,11 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARk: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("city"), object: nil)
         
         // MARK: - Helpers
         
@@ -79,12 +80,19 @@ class ViewController: UIViewController {
         forecastView.dataSource = self
     }
     
+    // MARK: - Handling notification method
+    
+    @objc func didGetNotification(_ notification: Notification) {
+        let city = notification.object as! String?
+        location = city!
+        searchButtonTapped()
+    }
+    
      // MARK: - PopUp ViewController Setup
     
     @IBAction func favouritesTapped() {
         let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") as! TableViewController
         savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
-        self.navigationController?.pushViewController(popVC, animated: true)
     }
     
     // MARK: - Saving cities method
