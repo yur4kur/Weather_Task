@@ -36,6 +36,7 @@ class TableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let cities = arrayOfCities?[indexPath.row]
@@ -51,6 +52,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             tableView.beginUpdates()
             arrayOfCities!.remove(at: indexPath.row)
@@ -61,9 +63,12 @@ class TableViewController: UITableViewController {
     }
     
     // MARK: - Selecting row and passing to VC
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         self.insert = (arrayOfCities?[indexPath.row])!
         NotificationCenter.default.post(name: Notification.Name("city"), object: insert)
+        
         self.dismiss(animated: true, completion: nil)
     }
 

@@ -100,7 +100,6 @@ class ViewController: UIViewController {
     @IBAction func favouritesTapped() {
         let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") as! TableViewController
         savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
-        //self.field.delegate?.textFieldDidBeginEditing?(field)
     }
     
     // MARK: - Saving cities method
@@ -109,10 +108,7 @@ class ViewController: UIViewController {
         if location.isEmpty == false {
             savedCities.append(location)
             updateList()
-            
         }
-        
-        
     }
     
     
@@ -156,17 +152,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CustomCell
         
         guard let list = fetchedList?[indexPath.row] else { return UITableViewCell() }
+        
         cell.forecastImage.image = UIImage(named: list.weather[0].icon)
         cell.minTLabel.text = Int(list.main.temp_min).description + "°   /"
         cell.maxTLabel.text = Int(list.main.temp_max).description + "°"
         cell.dateLabel.text = dateFormatter.string(from: list.dt)
+        
         return cell
     }
-    
-    
 }
 
 // MARK - UITextFieldDelegate method
