@@ -102,18 +102,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNR-1E-p5J">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YNR-1E-p5J">
                                 <rect key="frame" x="20" y="77" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="address-level2"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuD-6O-Pju">
-                                <rect key="frame" x="366" y="83" width="20" height="22"/>
-                                <state key="normal" image="magnifyingglass.circle" catalog="system"/>
-                                <connections>
-                                    <action selector="searchButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3M-Re-cQs"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qR-aF-5mh">
                                 <rect key="frame" x="20" y="182" width="374" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="46"/>
@@ -138,9 +131,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hph-CO-iri">
-                                <rect key="frame" x="266" y="119" width="71" height="30"/>
-                                <state key="normal" title="Favourites">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="wBU-y5-5nA">
+                                <rect key="frame" x="37" y="119" width="133" height="30"/>
+                                <state key="normal" title="  Add to favourites  ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToFavouritesTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="2AN-nZ-yjJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hph-CO-iri">
+                                <rect key="frame" x="250" y="119" width="127" height="30"/>
+                                <state key="normal" title="   Favourite cities   ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -150,43 +152,32 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBU-y5-5nA">
-                                <rect key="frame" x="106" y="119" width="117" height="30"/>
-                                <state key="normal" title="Add to favourites">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addToFavouritesTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="2AN-nZ-yjJ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hph-CO-iri" firstAttribute="top" secondItem="YNR-1E-p5J" secondAttribute="bottom" constant="8" id="14D-NI-Z9x"/>
                             <constraint firstAttribute="trailing" secondItem="PLW-4F-jID" secondAttribute="trailing" constant="29" id="3Lf-98-i3N"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hph-CO-iri" secondAttribute="trailing" constant="37" id="3VA-Ly-iNK"/>
                             <constraint firstItem="Nps-S8-es8" firstAttribute="top" secondItem="4qR-aF-5mh" secondAttribute="bottom" constant="8" id="5iJ-dn-B1g"/>
                             <constraint firstItem="PLW-4F-jID" firstAttribute="top" secondItem="mFt-xb-M5z" secondAttribute="bottom" constant="28.5" id="8kv-HI-QqM"/>
-                            <constraint firstItem="hph-CO-iri" firstAttribute="leading" secondItem="wBU-y5-5nA" secondAttribute="trailing" constant="43" id="9uE-ms-Mln"/>
                             <constraint firstItem="PLW-4F-jID" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="Ari-5K-4bZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hph-CO-iri" secondAttribute="trailing" constant="57" id="GBU-4Z-L8E"/>
+                            <constraint firstItem="hph-CO-iri" firstAttribute="top" secondItem="YNR-1E-p5J" secondAttribute="bottom" constant="8" id="EDg-7Y-Skf"/>
                             <constraint firstAttribute="bottom" secondItem="GFF-dq-df1" secondAttribute="bottom" id="Hk0-SY-P2g"/>
                             <constraint firstAttribute="trailing" secondItem="YNR-1E-p5J" secondAttribute="trailing" constant="20" id="JR0-i5-MJ7"/>
-                            <constraint firstAttribute="trailing" secondItem="MuD-6O-Pju" secondAttribute="trailing" constant="28" id="Jzy-fh-eXD"/>
                             <constraint firstItem="YNR-1E-p5J" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="77" id="N77-nN-CFC"/>
                             <constraint firstItem="4qR-aF-5mh" firstAttribute="top" secondItem="YNR-1E-p5J" secondAttribute="bottom" constant="71" id="OWq-ML-k2Q"/>
                             <constraint firstAttribute="trailing" secondItem="GFF-dq-df1" secondAttribute="trailing" id="Qxx-Ik-8kC"/>
                             <constraint firstItem="YNR-1E-p5J" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="RYk-fg-fZC"/>
                             <constraint firstItem="Nps-S8-es8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="152" id="SIX-oW-iTW"/>
                             <constraint firstItem="wBU-y5-5nA" firstAttribute="top" secondItem="YNR-1E-p5J" secondAttribute="bottom" constant="8" id="VEc-5T-gQj"/>
-                            <constraint firstItem="MuD-6O-Pju" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="366" id="WAM-7o-h03"/>
+                            <constraint firstItem="wBU-y5-5nA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="Viq-ou-1lx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mFt-xb-M5z" secondAttribute="trailing" constant="74" id="YjK-Tb-o0r"/>
                             <constraint firstItem="GFF-dq-df1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bqf-GO-JQR"/>
                             <constraint firstAttribute="trailing" secondItem="Nps-S8-es8" secondAttribute="trailing" constant="152" id="c2f-NU-c6c"/>
                             <constraint firstItem="mFt-xb-M5z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="75" id="gaf-ya-LBZ"/>
                             <constraint firstItem="GFF-dq-df1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="igX-sc-Yx0"/>
                             <constraint firstAttribute="trailing" secondItem="4qR-aF-5mh" secondAttribute="trailing" constant="20" id="keR-pl-Tpt"/>
-                            <constraint firstItem="MuD-6O-Pju" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="83" id="kmw-w6-UgM"/>
-                            <constraint firstItem="wBU-y5-5nA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="57" id="uYW-u8-vKK"/>
+                            <constraint firstItem="wBU-y5-5nA" firstAttribute="top" secondItem="YNR-1E-p5J" secondAttribute="bottom" constant="8" id="kji-ix-VJv"/>
                             <constraint firstItem="4qR-aF-5mh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="w8S-yv-uG3"/>
                             <constraint firstItem="mFt-xb-M5z" firstAttribute="top" secondItem="Nps-S8-es8" secondAttribute="bottom" constant="37" id="ymK-gA-eYB"/>
                         </constraints>
@@ -199,7 +190,7 @@
                         <outlet property="favouritesButton" destination="hph-CO-iri" id="d4a-Me-6xQ"/>
                         <outlet property="field" destination="YNR-1E-p5J" id="IGq-26-OJh"/>
                         <outlet property="forecastView" destination="Pgz-0L-bpA" id="Kyl-uL-FW5"/>
-                        <outlet property="searchButton" destination="MuD-6O-Pju" id="L0t-tK-duj"/>
+                        <outlet property="saveButton" destination="wBU-y5-5nA" id="cUg-T1-Eji"/>
                         <outlet property="weatherConditionLabel" destination="PLW-4F-jID" id="Qwb-mB-Knz"/>
                     </connections>
                 </viewController>
@@ -239,6 +230,5 @@
     <resources>
         <image name="01d" width="50" height="50"/>
         <image name="back_weather" width="750" height="1334"/>
-        <image name="magnifyingglass.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>

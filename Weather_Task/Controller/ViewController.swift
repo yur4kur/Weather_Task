@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var favouritesButton: UIButton!
     @IBOutlet var field: UITextField!
-    @IBOutlet var searchButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Weather grid outlets
     
@@ -70,6 +70,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("city"), object: nil)
         
+        // MARK: - Buttons modifiers
+        
+        saveButton.backgroundColor = UIColor.init(red: 85/255, green: 149/255, blue: 189/255, alpha: 1)
+        favouritesButton.backgroundColor = UIColor.init(red: 85/255, green: 149/255, blue: 189/255, alpha: 1)
+        saveButton.layer.cornerRadius = 8.0
+        favouritesButton.layer.cornerRadius = 8.0
+        
         // MARK: - Helpers
         
         dateFormatter.dateFormat = "E, hh:mm a"
@@ -93,6 +100,7 @@ class ViewController: UIViewController {
     @IBAction func favouritesTapped() {
         let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") as! TableViewController
         savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
+        //self.field.delegate?.textFieldDidBeginEditing?(field)
     }
     
     // MARK: - Saving cities method
@@ -110,7 +118,7 @@ class ViewController: UIViewController {
     
     // MARK: - Search method
     
-    @IBAction func searchButtonTapped() {
+    func searchButtonTapped() {
         if location.isEmpty == false {
             
             // MARK: - Fetcheing weather
