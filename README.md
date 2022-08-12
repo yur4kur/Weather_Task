@@ -1,9 +1,8 @@
 ![E7589D53-5689-4B4E-8715-03CEF1D71B1E](https://user-images.githubusercontent.com/105720427/184342742-ad1bd30b-6abe-4219-aea2-c0b96a0a539a.png)
 ![C48C9666-617C-4616-ACE8-423D69778139](https://user-images.githubusercontent.com/105720427/184342759-aad9a61d-d77a-413e-8a15-ee83d703418b.png)
 
-
-# Weather_Task
-UIKit Weather application to get current weather and 3-hour forecast for 5 next days.
+# Куринной Юрий
+## Тестовое задание Mobile Swift, приложение "Погода"
 
 Основной использованный стек: UIKit, TableViewContoller, UserDefaults, Segue, JSON, OpenWeatherMap APIs, MVC.
 
@@ -24,3 +23,5 @@ UIKit Weather application to get current weather and 3-hour forecast for 5 next 
 Сложности с которыми столкнулся:
 1. Несмотря на заявленную возможность, API не позволяет реализовать запросы на русском языке, поэтому все приложение на английском.
 2. API не всегда корректно отрабатывает при вводе названий городов, состоящих из двух слов (например, New York или Los Angeles), так, для получения погоды Нью-Йорка пользователь должен вводить только "New", а Рио-де-Жанейро - только "Rio". Решение этого бага возможно при использовании платной версии OneCall API, в которой предоставляется возможность загрузить в приложение файл с названиями всех доступных для API городов, и добавлении алгоритма для корректного отображения сложных названий.
+
+Проект находится в открытом доступе, код доступен для скачиваиня.
