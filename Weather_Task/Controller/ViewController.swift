@@ -72,8 +72,8 @@ class ViewController: UIViewController {
         
         // MARK: - Buttons modifiers
         
-        saveButton.backgroundColor = UIColor.init(red: 85/255, green: 149/255, blue: 189/255, alpha: 1)
-        favouritesButton.backgroundColor = UIColor.init(red: 85/255, green: 149/255, blue: 189/255, alpha: 1)
+        saveButton.backgroundColor = UIColor.init(red: 106/255, green: 160/255, blue: 200/255, alpha: 1)
+        favouritesButton.backgroundColor = UIColor.init(red: 106/255, green: 160/255, blue: 200/255, alpha: 1)
         saveButton.layer.cornerRadius = 8.0
         favouritesButton.layer.cornerRadius = 8.0
         
@@ -101,14 +101,14 @@ class ViewController: UIViewController {
         let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") as! TableViewController
         if savedCities.isEmpty == false {
             savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
-        } 
-        
+        }
     }
     
     // MARK: - Saving cities method
     
     @IBAction func addToFavouritesTapped() {
         if location.isEmpty == false {
+            savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
             savedCities.append(location)
             updateList()
         }
