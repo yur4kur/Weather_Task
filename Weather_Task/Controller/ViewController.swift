@@ -79,6 +79,8 @@ class ViewController: UIViewController {
         
         // MARK: - Helpers
         
+        updateList()
+        
         dateFormatter.dateFormat = "E, hh:mm a"
         
         field.delegate = self
@@ -138,10 +140,10 @@ class ViewController: UIViewController {
         } else {
             return
         }
-        savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
+        //savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
+       
     }
 }
-
 
 // Mark: - UITableViewDelegate & UITableViewDataSource Methods
 
@@ -176,6 +178,9 @@ extension ViewController: UITextFieldDelegate {
             location = cityName
             searchButtonTapped()
         }
+        return true
+    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
     }
 }
