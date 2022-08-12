@@ -10,22 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // MARK: - Header outlets
+    // MARK: - View grid
     
+    // Header outlets
     @IBOutlet weak var favouritesButton: UIButton!
     @IBOutlet var field: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
-    // MARK: - Weather grid outlets
-    
+    // Weather grid outlets
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var currentTemperatureLabel: UILabel!
     @IBOutlet weak var weatherConditionLabel: UILabel!
     @IBOutlet weak var currentFeelsTempLabel: UILabel!
     
     
-    // MARK: - Forecast table outlet
-    
+    // Forecast table outlet
     @IBOutlet weak var forecastView: UITableView!
     
     
@@ -39,10 +38,9 @@ class ViewController: UIViewController {
     var location = ""
     
     
-    // MARK: - Properties
+    // MARK: - Forecast view properties
     
     let dateFormatter = DateFormatter()
-    
     let reuseIdentifier = "customCell"
     
     
@@ -101,7 +99,10 @@ class ViewController: UIViewController {
     
     @IBAction func favouritesTapped() {
         let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") as! TableViewController
-        savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
+        if savedCities.isEmpty == false {
+            savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
+        } 
+        
     }
     
     // MARK: - Saving cities method
@@ -119,8 +120,7 @@ class ViewController: UIViewController {
     func searchButtonTapped() {
         if location.isEmpty == false {
             
-            // MARK: - Fetcheing weather
-            
+            // Fetcheing weather
             let weatherManager = WeatherManager()
             
             weatherManager.fetchWeather(for: location) { (weatherData) in
@@ -129,8 +129,7 @@ class ViewController: UIViewController {
                 self.fetchedWeather = weatherData
             }
             
-            // MARK: - Fetching forecast
-            
+            // Fetching forecast
             let forecastManager = ForecastManager()
             forecastManager.fetchForecast(for: location) { (forecasts) in
                 DispatchQueue.main.async {
@@ -140,7 +139,7 @@ class ViewController: UIViewController {
         } else {
             return
         }
-        //savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
+       
        
     }
 }
@@ -171,6 +170,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK - UITextFieldDelegate method
 
 extension ViewController: UITextFieldDelegate {
+    
+    // Search button method
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
@@ -180,8 +181,15 @@ extension ViewController: UITextFieldDelegate {
         }
         return true
     }
+    
+    // Clear textfield method
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
+    }
+    
+    // Hide keyboard method
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 
