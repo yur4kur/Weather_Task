@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         
         // MARK: - Helpers
         
-        updateList()
+        //updateList()
         
         dateFormatter.dateFormat = "E, hh:mm a"
         
