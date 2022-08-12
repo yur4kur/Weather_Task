@@ -62,10 +62,12 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: - Observer for view update after choosing a city 
+        
         NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("city"), object: nil)
         
         // MARK: - Buttons modifiers
@@ -76,8 +78,6 @@ class ViewController: UIViewController {
         favouritesButton.layer.cornerRadius = 8.0
         
         // MARK: - Helpers
-        
-        //updateList()
         
         dateFormatter.dateFormat = "E, hh:mm a"
         

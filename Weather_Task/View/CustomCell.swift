@@ -9,12 +9,13 @@
 import UIKit
 
 class CustomCell: UITableViewCell {
-    @IBOutlet weak var forecastView: UIView!
     
+    @IBOutlet weak var forecastView: UIView!
     @IBOutlet weak var maxTLabel: UILabel!
     @IBOutlet weak var minTLabel: UILabel!
     @IBOutlet weak var forecastImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         
         super.awakeFromNib()
