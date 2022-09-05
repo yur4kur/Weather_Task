@@ -30,7 +30,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return self.arrayOfCities!.count
+        return self.arrayOfCities?.count ?? 0
         
     }
 

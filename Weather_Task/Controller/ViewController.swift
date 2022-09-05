@@ -108,7 +108,7 @@ class ViewController: UIViewController {
     
     @IBAction func addToFavouritesTapped() {
         if location.isEmpty == false {
-            savedCities = UserDefaults.standard.object(forKey: "savedCities") as! [String]
+            savedCities = UserDefaults.standard.object(forKey: "savedCities") as? [String] ?? ["Oslo"]
             savedCities.append(location)
             updateList()
         }
